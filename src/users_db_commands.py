@@ -26,7 +26,10 @@ class UsersDBCommands:
     CREATE TABLE IF NOT EXISTS sessions_history (
         session_id SERIAL PRIMARY KEY,
         session_key UUID NOT NULL,
-        session_data CHAR(32) NOT NULL
+        session_data TEXT NOT NULL
     );
     """
-    INSERT_SESSION_COMMAND = """"""
+    INSERT_SESSION_COMMAND = """
+    INSERT INTO sessions_history (session_key, session_data)
+    VALUES (%s, %s);
+    """

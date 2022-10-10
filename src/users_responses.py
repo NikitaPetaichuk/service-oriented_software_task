@@ -29,3 +29,9 @@ class UsersResponses:
     @staticmethod
     def user_not_found():
         return UsersResponses._error("User with the given id hasn't been found", 404)
+
+    @staticmethod
+    def not_authorized():
+        return UsersResponses._error(
+            "You should authorize or reauthorize first to use this request", 401
+        )
